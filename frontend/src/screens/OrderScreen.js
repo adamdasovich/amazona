@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate, useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -30,6 +30,7 @@ function reducer(state, action) {
             return { ...state, loadingPay: false };
         case 'PAY_RESET':
             return { ...state, loadingPay: false, successPay: false };
+
         default:
             return state;
     }

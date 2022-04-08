@@ -2,6 +2,7 @@ import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
 import { isAuth } from '../utils.js';
+
 const orderRouter = express.Router();
 orderRouter.post(
     '/',
@@ -17,6 +18,7 @@ orderRouter.post(
             totalPrice: req.body.totalPrice,
             user: req.user._id,
         });
+
         const order = await newOrder.save();
         res.status(201).send({ message: 'New Order Created', order });
     })
